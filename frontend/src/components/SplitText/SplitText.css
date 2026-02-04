@@ -1,0 +1,22 @@
+.split-parent {
+  display: block;
+}
+
+@keyframes charReveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.split-char,
+.split-word {
+  display: inline-block;
+  opacity: 0;
+  animation: charReveal 0.4s linear forwards;
+  transform-style: preserve-3d;
+}

@@ -1,0 +1,52 @@
+.App {
+  min-height: 100vh;
+  background: transparent;
+  position: relative;
+}
+
+/* BeamsBackground container */
+.beams-background-container {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1 !important;
+  pointer-events: none;
+}
+
+/* Ensure content is above the beams background */
+.App > *:not(.beams-background-container) {
+  position: relative;
+  z-index: 1;
+}
+
+.app-header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.main-content {
+  padding: 20px;
+  min-height: calc(100vh - 70px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 10px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}

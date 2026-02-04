@@ -1,0 +1,22 @@
+.scroll-float {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+}
+
+.scroll-float-text {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  transform-style: preserve-3d;
+}
+
+.scroll-float .char {
+  display: inline-block;
+  will-change: opacity, transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}

@@ -1,0 +1,613 @@
+/* Import Poppins Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+.bookings-container {
+  min-height: calc(100vh - 70px);
+  padding: 20px;
+  background: transparent;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  z-index: 1;
+}
+
+.bookings-content {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.bookings-header {
+  text-align: center;
+  margin-bottom: 50px;
+  animation: slideDown 0.6s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.bookings-header h1 {
+  font-size: 48px;
+  margin-bottom: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  background: linear-gradient(135deg, #b76e79 0%, #e8a0a0 50%, #d4a574 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bookings-header p {
+  font-size: 18px;
+  color: rgba(232, 160, 160, 0.7);
+  font-family: 'Poppins', sans-serif;
+}
+
+.alert-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  margin-left: auto;
+  padding: 0 8px;
+  color: inherit;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.alert-close:hover {
+  opacity: 1;
+}
+
+/* No Bookings */
+.no-bookings {
+  background: linear-gradient(145deg, #151515 0%, #1a1a1a 50%, #121212 100%);
+  border-radius: 20px;
+  padding: 60px 40px;
+  text-align: center;
+  border: 1px solid rgba(183, 110, 121, 0.2);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.no-bookings-icon {
+  font-size: 80px;
+  margin-bottom: 20px;
+  filter: grayscale(0.3);
+}
+
+.no-bookings h2 {
+  font-size: 28px;
+  background: linear-gradient(135deg, #b76e79 0%, #e8a0a0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+.no-bookings p {
+  color: #888;
+  font-size: 16px;
+  margin-bottom: 24px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Bookings Grid */
+.bookings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 24px;
+}
+
+.booking-card {
+  background: linear-gradient(145deg, #151515 0%, #1a1a1a 50%, #121212 100%);
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid rgba(183, 110, 121, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: cardAppear 0.5s ease backwards;
+}
+
+.booking-card:nth-child(1) { animation-delay: 0.1s; }
+.booking-card:nth-child(2) { animation-delay: 0.2s; }
+.booking-card:nth-child(3) { animation-delay: 0.3s; }
+.booking-card:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes cardAppear {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.booking-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  border-color: rgba(183, 110, 121, 0.4);
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.5),
+              0 0 30px rgba(183, 110, 121, 0.1);
+}
+
+.booking-header-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(183, 110, 121, 0.15);
+}
+
+.booking-id {
+  display: flex;
+  flex-direction: column;
+}
+
+.id-label {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 4px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.id-value {
+  font-size: 14px;
+  font-weight: 700;
+  color: #e8a0a0;
+  font-family: 'Courier New', monospace;
+}
+
+.booking-movie {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.booking-poster {
+  width: 80px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid rgba(183, 110, 121, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.booking-movie-details {
+  flex: 1;
+}
+
+.booking-movie-details h3 {
+  font-size: 18px;
+  color: #f0f0f0;
+  margin-bottom: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+.booking-datetime {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  color: #999;
+  font-family: 'Poppins', sans-serif;
+}
+
+.booking-seats {
+  margin-bottom: 16px;
+}
+
+.seats-label {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 8px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.seats-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.seat-badge {
+  padding: 8px 14px;
+  background: linear-gradient(135deg, #b76e79 0%, #d4a574 100%);
+  color: #0a0a0a;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 2px 8px rgba(183, 110, 121, 0.3);
+}
+
+.booking-amount {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px;
+  background: linear-gradient(135deg, rgba(183, 110, 121, 0.08) 0%, rgba(212, 165, 116, 0.08) 100%);
+  border-radius: 12px;
+  margin-bottom: 12px;
+  border: 1px solid rgba(183, 110, 121, 0.15);
+}
+
+.amount-label {
+  font-size: 14px;
+  color: #888;
+  font-family: 'Poppins', sans-serif;
+}
+
+.amount-value {
+  font-size: 26px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #b76e79 0%, #d4a574 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: 'Poppins', sans-serif;
+}
+
+.booking-date {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 16px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.booking-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.booking-actions .btn {
+  flex: 1;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.booking-actions .btn-primary {
+  background: linear-gradient(135deg, #b76e79 0%, #d4a574 100%);
+  color: #0a0a0a;
+}
+
+.booking-actions .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(183, 110, 121, 0.4);
+}
+
+.booking-actions .btn-secondary {
+  background: rgba(183, 110, 121, 0.1);
+  color: #e8a0a0;
+  border: 1px solid rgba(183, 110, 121, 0.3);
+}
+
+.booking-actions .btn-secondary:hover {
+  background: rgba(183, 110, 121, 0.2);
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  z-index: 9999 !important;
+  padding: 20px;
+  animation: modalFadeIn 0.3s ease;
+  backdrop-filter: blur(8px);
+  overflow-y: auto;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  background: linear-gradient(145deg, #151515 0%, #1a1a1a 50%, #121212 100%);
+  border-radius: 20px;
+  max-width: 700px;
+  width: 95%;
+  max-height: 85vh;
+  overflow-y: auto;
+  border: 1px solid rgba(183, 110, 121, 0.3);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.8),
+              0 0 60px rgba(183, 110, 121, 0.2);
+  animation: modalSlideUp 0.4s ease;
+  margin: auto;
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  border-bottom: 1px solid rgba(183, 110, 121, 0.15);
+}
+
+.modal-header h2 {
+  font-size: 24px;
+  background: linear-gradient(135deg, #b76e79 0%, #e8a0a0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+}
+
+.modal-close {
+  background: rgba(183, 110, 121, 0.1);
+  border: 1px solid rgba(183, 110, 121, 0.2);
+  font-size: 24px;
+  cursor: pointer;
+  color: #e8a0a0;
+  padding: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+  background: rgba(183, 110, 121, 0.2);
+  transform: rotate(90deg);
+}
+
+.modal-body {
+  padding: 24px;
+}
+
+.detail-section {
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(183, 110, 121, 0.1);
+}
+
+.detail-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.detail-section h3 {
+  font-size: 18px;
+  color: #e8a0a0;
+  margin-bottom: 16px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(183, 110, 121, 0.08);
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-label {
+  font-size: 14px;
+  color: #888;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+}
+
+.detail-value {
+  font-size: 14px;
+  color: #e0e0e0;
+  text-align: right;
+  font-family: 'Poppins', sans-serif;
+}
+
+.total-row {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(183, 110, 121, 0.2);
+}
+
+.total-row .detail-label,
+.total-row .total-amount {
+  font-size: 20px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #b76e79 0%, #d4a574 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: 'Poppins', sans-serif;
+}
+
+.seats-grid-modal {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 12px;
+}
+
+.seat-detail-card {
+  padding: 18px;
+  background: linear-gradient(135deg, rgba(183, 110, 121, 0.1) 0%, rgba(212, 165, 116, 0.1) 100%);
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid rgba(183, 110, 121, 0.15);
+  transition: transform 0.2s ease;
+}
+
+.seat-detail-card:hover {
+  transform: scale(1.05);
+}
+
+.seat-number {
+  font-size: 18px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #b76e79 0%, #d4a574 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 4px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.seat-price {
+  font-size: 14px;
+  color: #888;
+  font-family: 'Poppins', sans-serif;
+}
+
+.security-section {
+  background: linear-gradient(135deg, rgba(74, 222, 128, 0.08) 0%, rgba(52, 211, 153, 0.08) 100%);
+  border: 1px solid rgba(74, 222, 128, 0.2);
+  border-radius: 12px;
+  padding: 20px !important;
+}
+
+.security-section h3 {
+  color: #4ade80 !important;
+}
+
+.security-note {
+  margin-top: 12px;
+  padding: 14px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.security-note p {
+  font-size: 13px;
+  color: #4ade80;
+  line-height: 1.7;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.info-list li {
+  padding: 10px 0;
+  padding-left: 28px;
+  position: relative;
+  color: #bbb;
+  font-size: 14px;
+  line-height: 1.6;
+  font-family: 'Poppins', sans-serif;
+}
+
+.info-list li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #4ade80;
+  font-weight: bold;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 24px;
+  border-top: 1px solid rgba(183, 110, 121, 0.15);
+}
+
+.modal-footer .btn {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.modal-footer .btn-primary {
+  background: linear-gradient(135deg, #b76e79 0%, #d4a574 100%);
+  color: #0a0a0a;
+}
+
+.modal-footer .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(183, 110, 121, 0.4);
+}
+
+.modal-footer .btn-secondary {
+  background: rgba(183, 110, 121, 0.1);
+  color: #e8a0a0;
+  border: 1px solid rgba(183, 110, 121, 0.3);
+}
+
+.modal-footer .btn-secondary:hover {
+  background: rgba(183, 110, 121, 0.2);
+}
+
+.hash-display {
+  background: #1a1a1a;
+  color: #4ade80;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  word-break: break-all;
+  border: 1px solid rgba(74, 222, 128, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .bookings-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bookings-header h1 {
+    font-size: 32px;
+  }
+
+  .modal-content {
+    margin: 0;
+    border-radius: 0;
+    max-height: 100vh;
+  }
+
+  .seats-grid-modal {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  }
+}

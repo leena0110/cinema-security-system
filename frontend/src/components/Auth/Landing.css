@@ -1,0 +1,130 @@
+.landing-container {
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+/* Hero Section */
+.hero-section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  scroll-snap-align: start;
+}
+
+.hero-content {
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.hero-title {
+  font-size: clamp(3.5rem, 12vw, 7rem);
+  font-weight: 900;
+  color: #b76e79;
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -3px;
+}
+
+.hero-title .split-char {
+  background: linear-gradient(135deg, #b76e79 0%, #e8a0a0 50%, #d4a574 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-weight: 700;
+  color: #e8a0a0;
+  margin: 0;
+  letter-spacing: -1px;
+  line-height: 1.3;
+}
+
+.hero-subtitle .split-char {
+  background: linear-gradient(135deg, #e8a0a0 0%, #b76e79 50%, #d4a574 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Scroll Indicator - 144fps optimized */
+.scroll-indicator {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  opacity: 0;
+  animation: fadeIn 0.5s linear 1.2s forwards;
+}
+
+.scroll-indicator:hover {
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.scroll-text {
+  color: rgba(183, 110, 121, 0.9);
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.scroll-arrow {
+  color: rgba(183, 110, 121, 0.9);
+  animation: bounce 1.5s linear infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+/* Login Section - 144fps optimized */
+.login-section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s linear;
+  scroll-snap-align: start;
+}
+
+.login-section.visible {
+  opacity: 1;
+}
+
+.login-section .login-container {
+  min-height: auto;
+  padding: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+    letter-spacing: -2px;
+  }
+  
+  .hero-subtitle {
+    font-size: clamp(1rem, 4vw, 1.8rem);
+  }
+}
