@@ -1,0 +1,54 @@
+# FOCYS Lab Viva Cheat Sheet
+
+## 1. Authentication
+- **Single-Factor:** Password login (`User.model.js`, `auth.controller.js`)
+- **Multi-Factor:** OTP via email after password (`auth.controller.js`, `email.util.js`)
+- **Theory:**
+  - Single-factor: something you know (password)
+  - Multi-factor: something you know + something you have (OTP)
+
+## 2. Authorization & Access Control
+- **RBAC:** Roles: user, manager, admin (`User.model.js`)
+- **Policy:** Access Control Matrix/ACL (`accessControl.util.js`)
+- **Enforcement:** Middleware (`auth.middleware.js`)
+- **DB Storage:** `AccessControl.model.js`
+- **Show Policy:** `/api/admin/access-control-policy` (Postman)
+- **Theory:**
+  - RBAC restricts actions by role
+  - ACM/ACL defines permissions
+
+## 3. Encryption
+- **AES-256-CBC:** Encrypts booking data (`encryption.util.js`, `booking.controller.js`)
+- **Base64:** Stores encrypted binary as string
+- **Key Generation:** RSA/Diffie-Hellman (`encryption.util.js`)
+- **Theory:**
+  - AES: Fast, secure, for large data
+  - RSA: For key exchange, not large data
+  - Base64: For storage, not security
+
+## 4. Hashing & Digital Signature
+- **Hashing with Salt:** bcrypt for passwords (`User.model.js`)
+- **Digital Signature:** RSA-SHA256 for bookings (`digitalSignature.util.js`, `booking.controller.js`)
+- **Theory:**
+  - Hashing: One-way, salt prevents attacks
+  - bcrypt: Secure, slow, salted
+  - Digital Signature: Proves integrity/authenticity
+
+## 5. Encoding Techniques
+- **Base64:** For storing encrypted data (`encryption.util.js`, `encoding.util.js`)
+- **Theory:**
+  - Encoding: For format, not security
+  - Encryption: For security, needs key
+
+## 6. Common Viva Questions
+- **Why AES?** Fast, secure, for large data
+- **Why not RSA for data?** Slow, for small data/key exchange
+- **Why bcrypt?** Secure password hashing, uses salt
+- **What is a digital signature?** Proves data integrity/authenticity
+- **Encoding vs Encryption?** Encoding is for format, encryption is for security
+
+## 7. Demo Tips
+- Show code files for each feature
+- Use Postman for endpoints
+- Show DB entries (hashed passwords, Base64 encrypted data)
+- Be ready to explain theory and show code
